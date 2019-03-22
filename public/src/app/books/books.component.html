@@ -1,0 +1,49 @@
+<a class="waves-effect waves-light btn" [routerLink]="['/list']">Home</a>
+<hr>
+<div class="authorInfo">
+  <div> <img src="{{author.image}}" alt="photo"> </div>
+  <div class="authorName"> {{author.name}} </div>
+</div>
+<div class="bookRegForm">
+  <form method="POST">
+      <label for="">Book Title:</label>
+      <input type="text" [(ngModel)]="book.title" name="book.title" >
+      <label for="">Genre:</label>
+      <input type="text" [(ngModel)]="book.genre" name="book.genre" >
+      <label for="">Publication Year:</label>
+      <input type="text" [(ngModel)]="book.publication_year" name="book.publication_year" >
+      <label for="">Cover Image:</label>
+      <input type="text" [(ngModel)]="book.cover" name="book.cover" >
+      <div class="input-field col s12">
+        <textarea id="textarea1" class="materialize-textarea" [(ngModel)]="book.summery" name="book.summery">        
+        </textarea>
+        <label for="textarea1">Summery:</label>
+      </div>
+      
+      <button *ngIf="!formType" class="waves-effect waves-light btn" (click)="addBookInfo([author._id])">Submit</button>
+      <button *ngIf="formType" class="waves-effect waves-light btn" (click)="updateBookInfo(author._id, book._id)">Update</button>
+  </form>
+</div>
+
+<div class="col s12 m7">
+    <h2 class="header">Author's Books</h2>
+    
+    <div class="card horizontal" *ngFor="let book of author.books; let i=index">
+      <div class="card-image">
+        <img src="{{book.cover}}">
+      </div>
+      <div class="card-stacked">
+        <div class="card-content">
+          <p>Book Title: {{ book.title }}</p>
+          <p>Book Category: {{ book.genre }}</p>
+          <p>Publication Year: {{ book.publication_year }}</p>
+          <p>Summery:</p>
+          <p>{{ book.summery }}</p>
+        </div>
+        <div class="card-action">
+          <a (click)="getBooksInfoUpdateForm(author._id, i)">Update Book Information</a>
+        </div>
+      </div>
+    </div>
+
+</div>

@@ -1,0 +1,29 @@
+<a class="waves-effect waves-light btn" [routerLink]="['/create']">Add an Author</a>
+
+<table class="responsive-table">
+    <thead>
+      <tr>
+        <th>&nbsp;</th>
+        <th>Author</th>
+        <th>Books List</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let author of authors">
+        <td> 
+          <div> <img src="{{author.image}}" alt="photo"> </div>          
+        </td>
+        <td> {{author.name}} </td>
+        <td> 
+          <span *ngFor="let book of author.books">{{book.title}}, &nbsp;</span> 
+        </td>
+        <td> 
+          <button class="waves-effect waves-light btn" (click)="getBookList([author._id])">Books</button> &nbsp; 
+          <button class="waves-effect waves-light btn" (click)="getUpdateForm([author._id])">Edit</button> &nbsp; 
+          <button class="waves-effect waves-light btn" (click)="deleteAuthor(author._id)">Delete</button> 
+        </td>
+      </tr>
+    </tbody>
+  </table>
+ 

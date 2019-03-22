@@ -1,0 +1,21 @@
+<a class="waves-effect waves-light btn" [routerLink]="['/list']">Home</a>
+
+<p>Add a new author:</p>
+
+<div>
+
+  <form method="POST">
+
+    <label for="">Name:</label>
+    <div class="errorMessage">{{errorMessage.name}}</div>
+    <input type="text" [(ngModel)]="author.name" name="author.name" >
+
+    <label for="">Author Picture:</label>
+    <div class="errorMessage">{{errorMessage.image}}</div>
+    <input type="text" [(ngModel)]="author.image" name="author.image" >
+
+    <button class="waves-effect waves-light btn" (click)="cancelAuthorAdding()">Cancel</button> &nbsp;
+    <button class="waves-effect waves-light btn" (click)="addAuthorInfo()">Submit</button>
+  </form>
+  
+</div>

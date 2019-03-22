@@ -1,0 +1,13 @@
+div.authorInfo{
+    display: inline-block;
+    width: 40%;
+    vertical-align: top;
+}
+div.bookRegForm{
+    display: inline-block;
+    width: 58%;
+    vertical-align: top;
+}
+div.authorName{
+    font-weight: bold;
+}
